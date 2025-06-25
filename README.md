@@ -1,3 +1,12 @@
+# NodeJs and Npm
+1. install Node Version Manager by `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash`
+2. This project requires Node.js version specified in `.nvmrc`. Please use [nvm](https://github.com/nvm-sh/nvm) to install and use the correct version:
+
+```sh
+nvm install
+nvm use
+```
+
 # Product Showcase Web App with Stripe Payments
 
 This project is a scalable, minimal web application built with [Next.js](https://nextjs.org) for showcasing products and supporting Stripe payments.
@@ -18,6 +27,7 @@ This project is a scalable, minimal web application built with [Next.js](https:/
 │   │   ├── api
 │   │   │   └── stripe
 │   │   │       └── route.ts
+│   │   ├── favicon.ico
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── shared
@@ -48,16 +58,8 @@ This project is a scalable, minimal web application built with [Next.js](https:/
 - `styles/` — All global and modular CSS/SCSS files.
 - `types/` — Global types.
 - `tests/` — Integration and E2E tests.
+- `public/` — All vector assets.
 - `.env.example` — Document all required environment variables.
----
-
-## Why This Structure?
-- **Scalability:** Feature-based structure scales with team and product growth.
-- **Maintainability:** Related files are grouped, reducing cognitive load.
-- **Reusability:** Shared code is clearly separated.
-- **Testing:** Easier to test and maintain code with colocated tests.
-- **Best Practices:** Encourages separation of concerns, clear boundaries, and modern Next.js conventions.
-
 ---
 
 ## Getting Started
