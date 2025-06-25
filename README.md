@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Showcase Web App with Stripe Payments
+
+This project is a scalable, minimal web application built with [Next.js](https://nextjs.org) for showcasing products and supporting Stripe payments.
+
+---
+
+## Project Structure
+
+```
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── src
+│   ├── app
+│   │   ├── api
+│   │   │   └── stripe
+│   │   │       └── route.ts
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── shared
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── utils/
+│   ├── styles
+│   │   └── globals.css
+│   └── types
+│       └── global.d.ts
+├── tests
+│   └── integration/
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+└── tsconfig.json
+```
+
+**Key Points:**
+- `app/page.tsx` — Main entry point for the root route (`/`).
+- `app/layout.tsx` — Root layout for shared UI and providers.
+- `shared/components/` — Reusable UI components.
+- `shared/hooks/` — Reusable hooks.
+- `shared/utils/` — Utility functions.
+- `app/api/` — Next.js API routes for backend logic (e.g., Stripe webhooks).
+- `styles/` — All global and modular CSS/SCSS files.
+- `types/` — Global types.
+- `tests/` — Integration and E2E tests.
+- `.env.example` — Document all required environment variables.
+---
+
+## Why This Structure?
+- **Scalability:** Feature-based structure scales with team and product growth.
+- **Maintainability:** Related files are grouped, reducing cognitive load.
+- **Reusability:** Shared code is clearly separated.
+- **Testing:** Easier to test and maintain code with colocated tests.
+- **Best Practices:** Encourages separation of concerns, clear boundaries, and modern Next.js conventions.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **(Optional) Set up environment variables:**
+   - Copy `.env.example` to `.env.local` and fill in your Stripe keys and other secrets.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stripe Integration
+- All payment logic and Stripe API calls should be placed in `src/config/stripe.ts`, `src/features/checkout/`, and `src/app/api/stripe/`.
+- Never commit real API keys or secrets. Use environment variables only.
+- Test payments using Stripe's test mode and keys.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contribution & Code Check-in Guidelines
+- **Organize code by feature**: Place new features in `src/features/` and reusable components in `src/shared/components/`.
+- **Type safety**: Use TypeScript for all code. Define types in `src/types/` or colocate with features.
+- **Testing**: Add or update tests in the relevant feature or in `/tests/` for integration/E2E.
+- **Secrets**: Never commit `.env.local` or any secrets.
+- **Pull Requests**: All changes must be submitted via pull request with a clear description and linked issue (if applicable).
+- **Code Review**: At least one approval is required before merging.
+- **Documentation**: Update this README or add docs for any new features or significant changes.
+
+---
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Stripe Docs](https://stripe.com/docs)
+- [Testing Next.js](https://nextjs.org/docs/testing)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Deploy easily on [Vercel](https://vercel.com/) or your preferred platform.
+- See [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
