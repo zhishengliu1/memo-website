@@ -1,5 +1,5 @@
 
-# Server vs Client Logic Check-in Guideline
+# Server vs Client Logic Check-in Guidelines
 
 In Next.js App Router, components are either:
 
